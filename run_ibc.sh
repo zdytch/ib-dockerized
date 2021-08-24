@@ -9,7 +9,8 @@ Xvfb :0 &
 sleep 1
 
 #Run VNC if password is set
-if [ $IB_VNC_PASSWORD ] ; then 
+if [ $IB_VNC_PASSWORD ] ; then
+    mkdir -p .vnc 
     x11vnc -storepasswd $IB_VNC_PASSWORD .vnc/passwd
     x11vnc -rfbport $VNC_PORT -display :0 -usepw -forever &
 fi
