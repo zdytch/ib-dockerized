@@ -32,7 +32,6 @@ COPY ./ibc_config.ini /root/ibc/config.ini
 COPY run_ibc.sh run_ibc.sh
 RUN chmod a+x run_ibc.sh
 
-
 #Environment variables and ports
 ENV DISPLAY :0
 ENV TWS_PORT 4002
