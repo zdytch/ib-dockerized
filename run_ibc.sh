@@ -24,7 +24,7 @@ if [ $IB_APP = "GW" ]; then
     APP_ARGS="$(ls ~/Jts/ibgateway) --gateway $APP_ARGS"
 else
     if [ $IB_APP = "TWS" ]; then
-        APP_ARGS="$(ls ~/Jts) $APP_ARGS"
+        APP_ARGS="$(ls ~/Jts | head -1) $APP_ARGS"
     fi
 fi
 
