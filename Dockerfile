@@ -27,17 +27,11 @@ RUN wget -q --progress=bar:force:noscroll --show-progress\
 RUN unzip ibc.zip -d /opt/ibc
 RUN chmod a+x /opt/ibc/*.sh /opt/ibc/*/*.sh
 
-#Copy run_ibc script
+#Copy IBC files
+COPY ./ibc_config.ini /root/ibc/config.ini
 COPY run_ibc.sh run_ibc.sh
 RUN chmod a+x run_ibc.sh
 
-# ARG IB_APP
-# ARG IB_VNC_PASSWORD
-
-# RUN mkdir .vnc
-# RUN if [ $IB_VNC_PASSWORD ] ; then x11vnc -storepasswd $IB_VNC_PASSWORD .vnc/passwd ; fi
-
-COPY ./ibc_config.ini /root/ibc/config.ini
 
 #Environment variables and ports
 ENV DISPLAY :0
