@@ -6,6 +6,10 @@ Based on [IBC](https://github.com/IbcAlpha/IBC) project.
 
 To run **Client Portal Web API Gateway** in Docker, you may want to use [IBeam](https://github.com/Voyz/ibeam) instead.
 
+<p align="center">
+    <img src="https://github.com/zdytch/ib-dockerized/blob/master/image.jpg" alt="IB Dockerized" title="IB Dockerized" width="640"/>
+</p>
+
 ## Environment variables:
 - `IB_APP` — trading app, possible values are   `tws` or `gw`
 - `IB_MODE` — trading mode, possible values are `paper` or `live`
