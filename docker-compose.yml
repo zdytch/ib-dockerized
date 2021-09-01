@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  ib:
+    container_name: ib
+    image: zdytch/ib-dockerized
+    restart: unless-stopped
+    environment:
+      - IB_APP=tws
+      - IB_MODE=paper
+      - IB_USER=ib_user
+      - IB_PASSWORD=ib_password
+      - VNC_PASSWORD=vnc_password
+      - TZ=Europe/Helsinki
+    ports:
+      - 5900:5900
