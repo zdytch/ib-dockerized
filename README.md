@@ -15,12 +15,13 @@ To run **Client Portal Web API Gateway** in Docker, you may want to use [IBeam](
 - `IB_MODE` — trading mode, possible values are `paper` or `live`
 - `IB_USER` — username
 - `IB_PASSWORD` — password
-- `VNC_PASSWORD` — **OPTIONAL** — if set, VNC connection allowed with the password
+- `VNC_PASSWORD` — **OPTIONAL** — if not set, VNC connection is disabled
+- `TZ` — **OPTIONAL** — if not set, app timezone is `UTC`. Use TZ database name from [here](https://en.m.wikipedia.org/wiki/List_of_tz_database_time_zones), e.g. `Europe/Helsinki`
 
 ## Run
 Use the environment variables in `docker compose` file or directly with `docker run` command:
 
-`docker run --publish 5900:5900 -e IB_APP= -e IB_MODE= -e IB_USER= -e IB_PASSWORD= -e VNC_PASSWORD= zdytch/ib-dockerized`
+`docker run --publish 5900:5900 -e IB_APP=tws -e IB_MODE=paper -e IB_USER=user -e IB_PASSWORD=password -e VNC_PASSWORD=vnc_password -e TZ=Europe/Helsinki zdytch/ib-dockerized`
 
 ## Disclaimer
 This method of deploying TWS/Gateway is not endorsed nor supported by Interactive Brokers.
