@@ -25,5 +25,8 @@ Or run directly with `docker run` command:
 
 `docker run -e IB_APP=tws -e IB_MODE=paper -e IB_USER=ib_user -e IB_PASSWORD=password -e VNC_PASSWORD=vnc_password -e TZ=Europe/Helsinki -p 5900:5900 zdytch/ib-dockerized`
 
+## Connection
+Use container address and port **4002** to connect to the IB application.
+
 ## Disclaimer
 This method of deploying TWS/Gateway is not endorsed nor supported by Interactive Brokers.
