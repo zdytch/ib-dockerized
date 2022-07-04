@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM --platform=linux/amd64 debian:bullseye-slim
 
 RUN apt-get update
 RUN apt-get install -y unzip wget x11vnc xvfb socat nano
