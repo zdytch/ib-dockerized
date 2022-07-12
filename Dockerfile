@@ -17,19 +17,23 @@ RUN chmod a+x install-ib-tws.sh
 
 #Install IB Gateway
 RUN yes '' | ./install-ib-gw.sh
+RUN rm install-ib-gw.sh
 
 #Install IB TWS
 RUN yes '' | ./install-ib-tws.sh
+RUN rm install-ib-tws.sh
 
 #Download IBC
 RUN wget -q --progress=bar:force:noscroll --show-progress\
     https://github.com/IbcAlpha/IBC/releases/download/3.13.0/IBCLinux-3.13.0.zip -O ibc.zip
 RUN unzip ibc.zip -d /opt/ibc
+RUN rm ibc.zip
 RUN chmod a+x /opt/ibc/*.sh /opt/ibc/*/*.sh
 
 #Copy IBC files
-COPY ./ibc_config.ini /root/ibc/config.ini
 COPY run_ibc.sh run_ibc.sh
+RUN mkdir ibc
+RUN cp /opt/ibc/config.ini ./ibc/
 RUN chmod a+x run_ibc.sh
 
 #Environment variables and ports
