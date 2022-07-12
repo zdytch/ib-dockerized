@@ -18,6 +18,9 @@ To run **Client Portal Web API Gateway** in Docker, you may want to use [IBeam](
 - `VNC_PASSWORD` — **OPTIONAL** — if not set, VNC connection is disabled
 - `TZ` — **OPTIONAL** — if not set, app timezone is `UTC`. Use TZ database name from [here](https://en.m.wikipedia.org/wiki/List_of_tz_database_time_zones), e.g. `Europe/Helsinki`
 
+## IBC Configuration
+By default, sample config.ini used. To use custom config.ini, [download](https://github.com/IbcAlpha/IBC/blob/master/resources/config.ini) the sample, modify it and map to `/root/ibc/config.ini`. Please see example `docker-compose.yml`.
+
 ## Run
 Use configuration from included sample file `docker-compose.yml`.
 

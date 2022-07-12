@@ -12,5 +12,7 @@ services:
       - IB_PASSWORD=ib_password
       - VNC_PASSWORD=vnc_password
       - TZ=Europe/Helsinki
+    volumes:
+      - ./config.ini:/root/ibc/config.ini
     ports:
       - 5900:5900
