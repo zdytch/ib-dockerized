@@ -1,6 +1,13 @@
 version: '3.9'
 
 services:
+  autoheal:
+    container_name: autoheal
+    image: willfarrell/autoheal
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
   ib:
     container_name: ib
     image: zdytch/ib-dockerized
@@ -16,3 +23,9 @@ services:
       - ./config.ini:/root/ibc/config.ini
     ports:
       - 5900:5900
+    labels:
+      autoheal: "true"
+    healthcheck:
+      interval: 15s
+      timeout: 5s
+      retries: 4
