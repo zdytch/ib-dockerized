@@ -1,7 +1,7 @@
 FROM --platform=linux/amd64 debian:bullseye-slim
 
 RUN apt-get update
-RUN apt-get install -y unzip wget x11vnc xvfb socat nano
+RUN apt-get install -y unzip wget x11vnc xvfb socat net-tools nano
 
 WORKDIR /root
 
@@ -42,6 +42,9 @@ ENV TWS_PORT 4002
 ENV VNC_PORT 5900
 EXPOSE $TWS_PORT
 EXPOSE $VNC_PORT
+
+#Enable healthcheck
+HEALTHCHECK CMD netstat -ltn | grep -c ":4001"
 
 #Run IBC
 CMD ./run_ibc.sh
