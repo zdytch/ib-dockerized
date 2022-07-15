@@ -31,5 +31,8 @@ Or run directly with `docker run` command:
 ## Connection
 Use container address and port **4002** to connect to the IB application.
 
+## Healthcheck
+The `netstat` utility is included and used to check IB socket port. You can customize healthcheck parameters and have the container automatically restart on unhealthy status. Please read about [autoheal](https://github.com/willfarrell/docker-autoheal) and see example `docker-compose.yml`.
+
 ## Disclaimer
 This method of deploying TWS/Gateway is not endorsed nor supported by Interactive Brokers.
