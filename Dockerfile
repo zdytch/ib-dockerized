@@ -37,14 +37,19 @@ RUN cp /opt/ibc/config.ini ./ibc/
 RUN chmod a+x run_ibc.sh
 
 #Environment variables and ports
+ENV IB_PORT 4000
+ENV GW_LIVE_PORT 4001
+ENV GW_PAPER_PORT 4002
+ENV TWS_LIVE_PORT 7496
+ENV TWS_PAPER_PORT 7497
 ENV DISPLAY :0
-ENV TWS_PORT 4002
 ENV VNC_PORT 5900
-EXPOSE $TWS_PORT
+
+EXPOSE $IB_PORT
 EXPOSE $VNC_PORT
 
 #Enable healthcheck
-HEALTHCHECK CMD netstat -ltn | grep -c ":4001"
+HEALTHCHECK CMD netstat -ltn | grep -c ":$GW_LIVE_PORT\|:$GW_PAPER_PORT\|:$TWS_LIVE_PORT\|:$TWS_PAPER_PORT"
 
 #Run IBC
 CMD ./run_ibc.sh
